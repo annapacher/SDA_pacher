@@ -4,12 +4,10 @@ Created on Tue Apr  2 15:12:57 2019
 
 @author: Anna Pacher
 
-Original code was modified in order to get a hippo with a wiggling snout
-by only using 5 parameters.
+    Original code was modified in order to get a hippo with a wiggling snout
+    by only using 5 parameters.
 
 """
-
-
 
 """
 vonNeuman_elephant.py
@@ -105,11 +103,11 @@ def init_plot():
 
 def move_trunk(i):
     
-    #here 1000 points are drawn, so that it appears that is a smooth line
+    #here 1000 points are drawn, so that it appears that it is a smooth line
     #however in fact that are just 1000 points
     
     x, y = elephant(linspace(2 * pi + 0.9 * pi, 0.4 + 3.3 * pi, 1000), parameters)
-    # move trunk to new position (but don't move eye stored at end of array)
+    # move trunk to new position 
     for ii in range(len(y) ):
         y[ii] -= sin(((x[ii] - x[0]) * pi / len(y))) * sin(float(i)) * parameters[4].real
     trunk.set_data(x, y)

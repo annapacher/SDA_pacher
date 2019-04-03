@@ -9,18 +9,25 @@ Created on Wed Apr  3 08:34:12 2019
 from wordcloud import WordCloud 
 import matplotlib.pyplot as plt 
 import csv
-
+import os
+from os import path
+from PIL import Image
+import numpy as np
 import nltk
 nltk.download('stopwords')
 
 from nltk.corpus import stopwords
+
+# Please change the working directory to your path!
+root_path = os.getcwd()
+
 #import german stopwords (these are words that will be excluded from the wordcloud,
 #for instance articles and prepositions)
 stopwords = stopwords.words('german')
 
 
 # file object is created 
-file_ob = open('musil.txt', encoding='utf-8') 
+file_ob = open(path.join(root_path, 'musil.txt'), encoding='utf-8') 
 
 # the imported text are the first to chapter of Musil's book "Der Mann ohne Eigenschaften"
 # and is taken form http://musilonline.at/musiltext/
@@ -43,21 +50,17 @@ for row in reader_contents :
   
         # concatenate the words 
         text = text + " " + word 
-  
-# show  50 words in the wordcloud . 
-wordcloud = WordCloud(width=480, height=480, max_words=50).generate(text)
-
-# plot the WordCloud image  (here no stopwords are defined) 
-plt.figure() 
-plt.imshow(wordcloud, interpolation="bilinear") 
-plt.axis("off") 
-plt.margins(x=0, y=0) 
-plt.show() 
+ 
+    
+# Mask
+man_pic = np.array(Image.open(path.join(root_path, "manwithhat.jpg")))
+    
 
 #########################################
-# remove stopwords from WordCloud . 
-wordcloud = WordCloud(width=480, height=480, 
-            stopwords=stopwords).generate(text) 
+# remove stopwords from WordCloud,  show  150 words in the wordcloud . 
+wordcloud = WordCloud(width=480, height=480, max_words=150,
+            stopwords=stopwords, mask= man_pic,
+            mode='RGBA', background_color=None).generate(text) 
   
 # plot the WordCloud image  
 plt.figure() 
@@ -65,10 +68,18 @@ plt.imshow(wordcloud, interpolation="bilinear")
 plt.axis("off") 
 plt.margins(x=0, y=0) 
 plt.show() 
+
+# store to file
+#plt.savefig('wordcloud.png')
+# store to file
+wordcloud.to_file("wordcloud.png")
+
+
 #########################################
 wordcloud = WordCloud(width=480, height=480,
                       stopwords=stopwords,
-                      background_color="pink").generate(text) 
+                      mask= man_pic,
+                      background_color="black").generate(text) 
   
 # plot the WordCloud image  
 plt.figure() 
