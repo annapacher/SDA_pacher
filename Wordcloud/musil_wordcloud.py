@@ -6,7 +6,8 @@ Created on Wed Apr  3 08:34:12 2019
 """
 
 # importing the necessery modules 
-from wordcloud import WordCloud 
+
+from wordcloud import WordCloud
 import matplotlib.pyplot as plt 
 import csv
 import os
@@ -57,10 +58,10 @@ man_pic = np.array(Image.open(path.join(root_path, "manwithhat.jpg")))
     
 
 #########################################
-# remove stopwords from WordCloud,  show  150 words in the wordcloud . 
-wordcloud = WordCloud(width=480, height=480, max_words=150,
+# remove stopwords from WordCloud,  show  200 words in the wordcloud . 
+wordcloud = WordCloud(width=480, height=480, max_words=200,
             stopwords=stopwords, mask= man_pic,
-            mode='RGBA', background_color=None).generate(text) 
+           mode='RGBA',background_color=None ).generate(text) 
   
 # plot the WordCloud image  
 plt.figure() 
@@ -70,16 +71,14 @@ plt.margins(x=0, y=0)
 plt.show() 
 
 # store to file
-#plt.savefig('wordcloud.png')
-# store to file
-wordcloud.to_file("wordcloud.png")
+wordcloud.to_file("musil_words.png")
 
 
 #########################################
 wordcloud = WordCloud(width=480, height=480,
                       stopwords=stopwords,
                       mask= man_pic,
-                      background_color="black").generate(text) 
+                      background_color="violet").generate(text) 
   
 # plot the WordCloud image  
 plt.figure() 
