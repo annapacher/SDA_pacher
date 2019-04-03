@@ -1,13 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Apr  2 15:12:57 2019
-
-@author: Anna Pacher
-
-    Original code was modified in order to get a hippo with a wiggling snout
-    by only using 5 parameters.
-
-"""
 
 """
 vonNeuman_elephant.py
@@ -39,13 +30,20 @@ Inspired by John von Neumann's famous quote (above) about overfitting data.
       Freeman Dyson in "A meeting with Enrico Fermi" in
       Nature 427 (22 January 2004) p. 297
       
-Python Version: 3.6
-Modified based on author[2]'s work
-Author: Junjie Hu
 
-Overfiting problem in trading strategy stated:
-Bailey, D., Borwein, J., Lopez de Prado, M., & Zhu, Q. (2014).
-Pseudo-mathematics and financial charlatanism: The effects of backtest overfitting on out-of-sample performance.
+Modified by Author [3]: Junjie Hu
+    Overfiting problem in trading strategy stated:
+        Bailey, D., Borwein, J., Lopez de Prado, M., & Zhu, Q. (2014).
+        Pseudo-mathematics and financial charlatanism: The effects of backtest overfitting on out-of-sample performance.
+
+
+Modified based on author[3]'s work
+    Author: Anna Pacher
+    Created on Tue Apr 2 15:12:57 2019
+
+    Original code was modified in order to get a hippo with a wiggling snout
+    by only using 5 parameters.
+
 """
 
 import matplotlib
@@ -66,7 +64,7 @@ def fourier(t, C):
     return f
 
 
-def elephant(t, p):
+def hippo(t, p):
     npar = 6
 
     Cx = zeros((npar,), dtype='complex')
@@ -92,9 +90,9 @@ def elephant(t, p):
 
 
 def init_plot():
-    # draw the body of the elephant
+    # draw the body of the hippo
     # create trunk
-    x, y = elephant(linspace(2 * pi + 0.9 * pi, 0.4 + 3.3 * pi, 1000), parameters)
+    x, y = hippo(linspace(2 * pi + 0.9 * pi, 0.4 + 3.3 * pi, 1000), parameters)
     for ii in range(len(y) - 1):
         y[ii] -= sin(((x[ii] - x[0]) * pi / len(y))) * sin(float(0)) * parameters[4].real
     trunk.set_data(x, y)
@@ -106,7 +104,7 @@ def move_trunk(i):
     #here 1000 points are drawn, so that it appears that it is a smooth line
     #however in fact that are just 1000 points
     
-    x, y = elephant(linspace(2 * pi + 0.9 * pi, 0.4 + 3.3 * pi, 1000), parameters)
+    x, y = hippo(linspace(2 * pi + 0.9 * pi, 0.4 + 3.3 * pi, 1000), parameters)
     # move trunk to new position 
     for ii in range(len(y) ):
         y[ii] -= sin(((x[ii] - x[0]) * pi / len(y))) * sin(float(i)) * parameters[4].real
@@ -115,8 +113,8 @@ def move_trunk(i):
 
 
 fig, ax = plt.subplots()
-# initial the elephant body
-x, y = elephant(t=linspace(0.4 + 1.3 * pi, 2 * pi + 0.9 * pi, 1000), p=parameters)
+# initial the hippo body
+x, y = hippo(t=linspace(0.4 + 1.3 * pi, 2 * pi + 0.9 * pi, 1000), p=parameters)
 plt.plot(x, y, 'b.')
 plt.xlim([-75, 90])
 plt.ylim([-70, 87])
