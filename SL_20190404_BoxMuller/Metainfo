@@ -1,0 +1,21 @@
+Name of Quantlet: SL_20190404_BoxMuller
+ 
+Published in: Statistical Learning Class (AAU Klagenfurt 2019)
+  
+Description: Provides vizualization of bivariate normal distribution applying Box-Muller method for generation of random variates
+ 
+Keywords: Box-Muller, bivariate, covariance matrix, Jordan decomposition, normal distribution
+     
+Author: Anna Pacher
+
+See also:     
+  
+Submitted:         
+  
+Datafile:          
+  
+Input:  
+  
+Output:  
+  
+Example:  

@@ -57,6 +57,9 @@ import matplotlib.pyplot as plt
 #parameters for the hippo:
 parameters = [50 - 15j, 5 + 2j, -10 - 10j, -14 - 60j, -15 + 30j]
 
+
+
+
 def fourier(t, C):
     f = zeros(t.shape)
     for k in range(len(C)):
@@ -85,6 +88,9 @@ def hippo(t, p):
     #chosen as the imaginary part of the last parameter
     x = append(fourier(t, Cy), [p[4].imag-20])
     y = -append(fourier(t, Cx), [-p[4].imag])
+    
+    
+    
 
     return x, y
 
@@ -106,8 +112,9 @@ def move_trunk(i):
     
     x, y = hippo(linspace(2 * pi + 0.9 * pi, 0.4 + 3.3 * pi, 1000), parameters)
     # move trunk to new position 
-    for ii in range(len(y) ):
+    for ii in range(len(y)):
         y[ii] -= sin(((x[ii] - x[0]) * pi / len(y))) * sin(float(i)) * parameters[4].real
+        
     trunk.set_data(x, y)
     return trunk,
 
@@ -119,6 +126,7 @@ plt.plot(x, y, 'b.')
 plt.xlim([-75, 90])
 plt.ylim([-70, 87])
 plt.axis('off')
+fig.patch.set_facecolor('0.5') #set background colour
 trunk, = ax.plot([], [], 'b.')  # initialize trunk
 
 ani = animation.FuncAnimation(fig=fig,
@@ -133,5 +141,5 @@ plt.show()
 Writer = animation.writers['ffmpeg']
 metadata = dict(title='Hippo_wiggling_snout', artist='Anna Pacher')
 writer = Writer(fps=30, metadata=metadata, bitrate=1800)
-ani.save(filename='AnnaPachers_hippo.mp4', writer=writer)
+ani.save(filename='Annas_wiggling_hippo.mp4', writer=writer)
 
