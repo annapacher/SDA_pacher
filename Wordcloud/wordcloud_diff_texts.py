@@ -28,7 +28,11 @@ stopwords = stopwords.words('german')
 
 
 # file object is created 
-file_ob = open(path.join(root_path, 'musil.txt'), encoding='utf-8') 
+# here it can be chosen which text should be displayed
+
+#file_ob = open(path.join(root_path, 'musil.txt'), encoding='utf-8') 
+#file_ob = open(path.join(root_path, '99Luftbalons.txt'), encoding='utf-8') 
+file_ob = open(path.join(root_path, 'gedicht.txt'), encoding='utf-8') 
 
 # the imported text are the first to chapter of Musil's book "Der Mann ohne Eigenschaften"
 # and is taken form http://musilonline.at/musiltext/
@@ -54,13 +58,18 @@ for row in reader_contents :
  
     
 # Mask
-man_pic = np.array(Image.open(path.join(root_path, "manwithhat.jpg")))
-    
+#man_pic = np.array(Image.open(path.join(root_path, "manwithhat.jpg")))
+#balloon = np.array(Image.open('balloon.jpeg'))
+star = np.array(Image.open(path.join(root_path, "star.jpeg")))
+ 
 
 #########################################
 # remove stopwords from WordCloud,  show  200 words in the wordcloud . 
 wordcloud = WordCloud(width=480, height=480, max_words=200,
-            stopwords=stopwords, mask= man_pic,
+            stopwords=stopwords,
+            #mask= man_pic,
+            #mask = balloon,
+            mask= star,
            mode='RGBA',background_color=None ).generate(text) 
   
 # plot the WordCloud image  
@@ -71,13 +80,16 @@ plt.margins(x=0, y=0)
 plt.show() 
 
 # store to file
-wordcloud.to_file("musil_words.png")
-
+#wordcloud.to_file("musil_words.png")
+#wordcloud.to_file("99luftballons.png")
+wordcloud.to_file("poem.png")
 
 #########################################
 wordcloud = WordCloud(width=480, height=480,
                       stopwords=stopwords,
-                      mask= man_pic,
+                      #mask= man_pic,
+                      #mask = balloon,
+                      mask= star,
                       background_color="violet").generate(text) 
   
 # plot the WordCloud image  
