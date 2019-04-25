@@ -1,0 +1,21 @@
+Name of Quantlet: SL_20190404_Wordcloud
+ 
+Published in: Statistical Learning Class (AAU Klagenfurt 2019)
+  
+Description: Creates a wordcloud for one of the three given texts (a german novel, a songtext or a poem) in the shape of a man with hat, a balloon or a star. 
+
+Keywords: Wordcloud, nltk, stopwords, mask, numpy
+     
+Author: Anna Pacher, Patrick Plum, Kathrin Spendier
+
+See also:     
+  
+Submitted:         
+  
+Datafile:          
+  
+Input:  
+  
+Output:  
+  
+Example:  

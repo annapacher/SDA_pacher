@@ -27,6 +27,7 @@ root_path = os.getcwd()
 stopwords = stopwords.words('german')
 
 
+
 # file object is created 
 # here it can be chosen which text should be displayed
 
@@ -34,8 +35,14 @@ stopwords = stopwords.words('german')
 #file_ob = open(path.join(root_path, '99Luftbalons.txt'), encoding='utf-8') 
 file_ob = open(path.join(root_path, 'gedicht.txt'), encoding='utf-8') 
 
-# the imported text are the first to chapter of Musil's book "Der Mann ohne Eigenschaften"
-# and is taken form http://musilonline.at/musiltext/
+
+# 1. text: Chapter one and two of Musil's book "Der Mann ohne Eigenschaften" taken form http://musilonline.at/musiltext/
+# 2. https://www.songtexte.com/songtext/nena/99-luftballons-63dcfa57.html
+# 3. taken from http://www.gedichte-zitate.com/gedichte.html
+
+
+
+
   
 # reader object is created 
 reader_ob = csv.reader(file_ob) 
@@ -61,7 +68,9 @@ for row in reader_contents :
 #man_pic = np.array(Image.open(path.join(root_path, "manwithhat.jpg")))
 #balloon = np.array(Image.open('balloon.jpeg'))
 star = np.array(Image.open(path.join(root_path, "star.jpeg")))
+
  
+
 
 #########################################
 # remove stopwords from WordCloud,  show  200 words in the wordcloud . 
