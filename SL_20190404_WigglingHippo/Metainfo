@@ -1,0 +1,21 @@
+Name of Quantlet: SL_20190404_WigglingHippo
+ 
+Published in: Statistical Learning Class (AAU Klagenfurt 2019)
+  
+Description: Creates a hippo with a wiggling snout by only using five complex parameters. Based on John von Neumann's elephant and his quote "With four parameters I can fit an elephant, and with five I can make him wiggle his trunk."
+ 
+Keywords: John von Neumann, overfitting, complex parameters, Python, matplotlib, numpy, animation
+     
+Author: Anna Pacher
+
+See also:     
+  
+Submitted:         
+  
+Datafile:          
+  
+Input:  
+  
+Output:  
+  
+Example:  

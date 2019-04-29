@@ -1,0 +1,21 @@
+Name of Quantlet: SL_20190404_crixdata
+ 
+Published in: Statistical Learning Class (AAU Klagenfurt 2019)
+  
+Description: Creates different plots (histogram, price and logreturns over time, logreturns vs vcrix) using Crix data.
+ 
+Keywords: Crix, vcrix, histogram, data visualization, matplotlib, pandas, numpy, json
+     
+Author: Anna Pacher, Kathrin Spendier
+
+See also:     
+  
+Submitted:         
+  
+Datafile:          
+  
+Input:  
+  
+Output:  
+  
+Example:  
